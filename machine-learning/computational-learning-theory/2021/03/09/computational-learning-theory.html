@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Computational Learning Theory - Notes | Books &amp; Data</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Computational Learning Theory - Notes" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A short summary of Computational Learning Theory." />
+<meta property="og:description" content="A short summary of Computational Learning Theory." />
+<link rel="canonical" href="https://kallebylin.github.io/bylin/machine-learning/computational-learning-theory/2021/03/09/computational-learning-theory.html" />
+<meta property="og:url" content="https://kallebylin.github.io/bylin/machine-learning/computational-learning-theory/2021/03/09/computational-learning-theory.html" />
+<meta property="og:site_name" content="Books &amp; Data" />
+<meta property="og:image" content="https://kallebylin.github.io/bylin/images/chart-preview.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-09T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://kallebylin.github.io/bylin/machine-learning/computational-learning-theory/2021/03/09/computational-learning-theory.html","@type":"BlogPosting","headline":"Computational Learning Theory - Notes","dateModified":"2021-03-09T00:00:00-06:00","datePublished":"2021-03-09T00:00:00-06:00","image":"https://kallebylin.github.io/bylin/images/chart-preview.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kallebylin.github.io/bylin/machine-learning/computational-learning-theory/2021/03/09/computational-learning-theory.html"},"description":"A short summary of Computational Learning Theory.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/bylin/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kallebylin.github.io/bylin/feed.xml" title="Books &amp; Data" /><link rel="shortcut icon" type="image/x-icon" href="/bylin/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /><script src="https://hypothes.is/embed.js" async></script>
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/bylin/">Books &amp; Data</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/bylin/about/">About Me</a><a class="page-link" href="/bylin/search/">Search</a><a class="page-link" href="/bylin/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Computational Learning Theory - Notes</h1><p class="page-description">A short summary of Computational Learning Theory.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-09T00:00:00-06:00" itemprop="datePublished">
+        Mar 9, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/bylin/categories/#machine-learning">machine-learning</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/bylin/categories/#computational-learning-theory">computational-learning-theory</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/kallebylin/bylin/tree/master/_notebooks/2021-03-09-computational-learning-theory.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/bylin/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/kallebylin/bylin/master?filepath=_notebooks%2F2021-03-09-computational-learning-theory.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/bylin/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/kallebylin/bylin/blob/master/_notebooks/2021-03-09-computational-learning-theory.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/bylin/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#About">About </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Is-bias-always-a-bad-thing?">Is bias always a bad thing? </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-03-09-computational-learning-theory.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="About">
+<a class="anchor" href="#About" aria-hidden="true"><span class="octicon octicon-link"></span></a>About<a class="anchor-link" href="#About"> </a>
+</h1>
+<p>There are good and bad practices for human learning. Highlighting interesting quotes in a book usually makes us feel productive in the moment but, let's be honest, doesn't help much in terms of learning.</p>
+<p>Taking notes, on the other hand, is a much more effective way of interiorizing information and storing it in long-term memory, especially if we translate concepts with our own words instead of just copying a text.</p>
+<p>The same is true for learning algorithms, not the part about taking notes but the fact that there ar good and bad methods for learning. Computational Learning Theory (also known as Statistical Learning Theory) is <strong>a branch of computer science focused on understanding how computational learning can happen efficiently and effectively, as well as discovering different impediments to learning</strong>.</p>
+<p>This document contains my notes on Computational Learning Theory.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Is-bias-always-a-bad-thing?">
+<a class="anchor" href="#Is-bias-always-a-bad-thing?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Is bias always a bad thing?<a class="anchor-link" href="#Is-bias-always-a-bad-thing?"> </a>
+</h2>
+<p>Bias usually has a very negative connotation, often thought of as prejudice and we are encouraged to always keep an open mind.</p>
+<p>But don't confuse an open mind with an empty mind. We often learn by building new ideas on top of other ideas we have learned in the past. Keeping an open mind means that we have to remember that some of our foundational building blocks might be wrong and need to be corrected. But constantly throwing away previous knowledge would make learning practically impossible.</p>
+<p><strong>Pigeon superstition</strong></p>
+<p>One of B.F. Skinner's classical experiments supposedly showed "superstitious" behavior by pigeons. The experiment consisted in providing food to hungry pigeons in a cage through a mechanism that was guaranteed to be completely independent from any behavior by the pigeons.</p>
+<blockquote>
+<p>"If a clock is now arranged to present the food hopper at regular intervals with no reference whatsoever to the bird's behavior, operant conditioning usually takes place. The bird tends to learn whatever response it is making when the hopper appears. The response may be extinguished and reconditioned. The experiment might be said to demonstrate a sort of superstition. The bird behaves as if there were a causal relation between its behavior and the presentation of food, although such a relation is lacking".</p>
+</blockquote>
+<p><em>Skinner, B. F. (1948). 'Superstition' in the pigeon. Journal of Experimental Psychology, 38(2), 168–172.</em></p>
+<p>Let's say one of the pigeons was pecking on a prticular stain on the bottom of the cage when the first round of food was released. According to Skinner, the pigeon was then more likely to repeat this same behavior which, in turn, also made it more likely for the pigeon to be found pecking on the stain when the next round of food was released.</p>
+<p>Amusingly, each pigeon showed a different type of behavior that was reinforced (walking around the cage in a specific direction, bobbing the head, etc.) as if the behavior was causing more food to be released. We know that this is not the case, because the food was being released at regular pre-defined intervals.</p>
+<p>This can then be compared to different forms of human superstition. Have you or anybody you known ever had a special ritual at home before every game of our favorite football team? =D</p>
+<p><strong>Rats and selective association</strong></p>
+<p>The phenomenon above can be compared to the behavior of rats as studied by Garcia and Koelling in 1966. Imagine rats going for their regular snack. Some of the rats were then induced to feel ill through an injection or radiation. As could be expected these rats then avoided food with similar taste or smell in the future.</p>
+<p>Another batch of rats was administered a mild electrical shock in the foot. Interestingly, these rats did not show aversion to the food or water, but instead to an audiovisual cue that always happened while they were eating or drinking.</p>
+<p>This experiment is widely known as one of the first proofs of the so-called Selective Association Effect. This is related to the concept of biological constraints disccused by students of Skinner. Apparently some animals naturally resist certain types of conditioning, as if they had some kind of built in prior knowledge that some types of relationships could not causal.</p>
+<p><strong>Inductive bias</strong></p>
+<p>This takes us to the concept of inductive bias, which can be described as the set of assumptions or prior knowledge that biases learning by setting restrictions or constraints to the learning process.</p>
+<p>In our example, the rats seem to be biased towards detecting certain types of patterns between taste or smell and their health, while ignoring other types of seemingly correlated events.</p>
+<p>This is a well known concept in machine learning. We often talk about models that have high bias or high variance. The second type of models tend to be more complex and are more flexible in the type of functions they can model. But this often makes them more difficult to interpret or prone to overfitting (they memorize the training data, which in this case can be compared to finding superstitious patterns that only apply to that particular set of data).</p>
+<p>By restricting the types of patterns we are looking for we can often make the learning process easier and also extract valuable insights from the trained model. Linear regression is a great example with well-known assumptions and very powerful applications.</p>
+<p><strong>Deductive vs Inductive reasoning</strong></p>
+<p>Just as a refresher, we can think about deductive and inductive reasoning as taking to different routes (often described as top-down or bottom-up approaches).</p>
+<p>On one hand (deduction) we start with general theories about how things should work, we develop a hypothesis that we can then confirm through experiments and specific observations.</p>
+<p>Deductive reasoning:- Theory -&gt; Hypothesis -&gt; Observations -&gt; Confirmation</p>
+<p>On the other hand, we might start with specific observations which we then use to try to discover a pattern in those observations. These patterns that we discover can then lead us to a more generalized understanding of the world.</p>
+<p>Inductive reasoning:</p>
+<ul>
+<li>Observations -&gt; Pattern -&gt; Tentative Hypothesis -&gt; Theory</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="kallebylin/bylin"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/bylin/machine-learning/computational-learning-theory/2021/03/09/computational-learning-theory.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/bylin/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/bylin/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/bylin/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A repo for my book reviews and notes.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/kallebylin" title="kallebylin"><svg class="svg-icon grey"><use xlink:href="/bylin/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/kallebylin" title="kallebylin"><svg class="svg-icon grey"><use xlink:href="/bylin/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
