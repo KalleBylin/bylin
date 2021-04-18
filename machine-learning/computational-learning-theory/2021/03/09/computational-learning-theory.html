@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Computational Learning Theory - Notes | Books &amp; Data</title>
+<title>Computational Learning Theory - Notes | Kalle Bylin: Books &amp; Data</title>
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Computational Learning Theory - Notes" />
 <meta property="og:locale" content="en_US" />
@@ -12,14 +12,14 @@
 <meta property="og:description" content="A short summary of Computational Learning Theory." />
 <link rel="canonical" href="https://kallebylin.github.io/bylin/machine-learning/computational-learning-theory/2021/03/09/computational-learning-theory.html" />
 <meta property="og:url" content="https://kallebylin.github.io/bylin/machine-learning/computational-learning-theory/2021/03/09/computational-learning-theory.html" />
-<meta property="og:site_name" content="Books &amp; Data" />
+<meta property="og:site_name" content="Kalle Bylin: Books &amp; Data" />
 <meta property="og:image" content="https://kallebylin.github.io/bylin/images/chart-preview.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-03-09T00:00:00-06:00" />
 <script type="application/ld+json">
 {"url":"https://kallebylin.github.io/bylin/machine-learning/computational-learning-theory/2021/03/09/computational-learning-theory.html","@type":"BlogPosting","headline":"Computational Learning Theory - Notes","dateModified":"2021-03-09T00:00:00-06:00","datePublished":"2021-03-09T00:00:00-06:00","image":"https://kallebylin.github.io/bylin/images/chart-preview.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kallebylin.github.io/bylin/machine-learning/computational-learning-theory/2021/03/09/computational-learning-theory.html"},"description":"A short summary of Computational Learning Theory.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/bylin/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kallebylin.github.io/bylin/feed.xml" title="Books &amp; Data" /><link rel="shortcut icon" type="image/x-icon" href="/bylin/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="/bylin/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kallebylin.github.io/bylin/feed.xml" title="Kalle Bylin: Books &amp; Data" /><link rel="shortcut icon" type="image/x-icon" href="/bylin/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /><script src="https://hypothes.is/embed.js" async></script>
 
 <script>
@@ -54,7 +54,7 @@ window.onload = wrap_img;
 </head>
 <body><header class="site-header">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/bylin/">Books &amp; Data</a><nav class="site-nav">
+  <div class="wrapper"><a class="site-title" rel="author" href="/bylin/">Kalle Bylin: Books &amp; Data</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -78,7 +78,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      8 min read
     
 </span></p>
 
@@ -123,6 +123,8 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#About">About </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Is-bias-always-a-bad-thing?">Is bias always a bad thing? </a></li>
+<li class="toc-entry toc-h2"><a href="#Statistical-Learning-Theory">Statistical Learning Theory </a></li>
+<li class="toc-entry toc-h2"><a href="#Is-all-learning-equal?">Is all learning equal? </a></li>
 </ul>
 </li>
 </ul><!--
@@ -187,6 +189,114 @@ window.onload = wrap_img;
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Statistical-Learning-Theory">
+<a class="anchor" href="#Statistical-Learning-Theory" aria-hidden="true"><span class="octicon octicon-link"></span></a>Statistical Learning Theory<a class="anchor-link" href="#Statistical-Learning-Theory"> </a>
+</h2>
+<p>In statistics it is common to to have well-defined assumptions about the distribution of our data (e.g. Gaussians). In SLT we have no or very general assumptions.</p>
+<h2 id="Is-all-learning-equal?">
+<a class="anchor" href="#Is-all-learning-equal?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Is all learning equal?<a class="anchor-link" href="#Is-all-learning-equal?"> </a>
+</h2>
+<p>Intuitively it would seem that there are different ways of learning. More formally, we can separate learning by different levels:</p>
+<ol>
+<li>Reproductive learning</li>
+</ol>
+<p>It could be argued that this first level is not learning at all.</p>
+<p>Basically, imagine a class where students are allowed to to take all of their notes to class. It would be possible for a student to create a table with all the information he needs without interiorizing the concepts. Once the exam starts he simply looks up the answers to his questions in the table. So he basically reproduces the information.</p>
+<p>The negative side is that we need to store all of the relevant information beforehand. This can in many cases be very difficult or even impossible.</p>
+<ol>
+<li>Rule-based learning</li>
+</ol>
+<p>This level of learning can be thought of as encoding the knowledge of experts. Imagine a medical application created to automatically diagnose different types of diseases. One way to do this would be to get input from a group of doctors and create a flow-chart with nodes for every single decision that could be made.</p>
+<p>Now we don't need to store the raw data or the observations with their corresponding labels as we would do in reproductive learning. Instead we keep all of these rules that can lead us to an answer.</p>
+<p>The problem with this approach is that it is also very difficult or even impossible to encode every single use case and the rules are often very brittle.</p>
+<ol>
+<li>Creative learning</li>
+</ol>
+<p>Here past experience is combined in different ways to solve new problems. This can often be a much more powerful approach as we are not limited to only reproducing past observations or following rigid rules.</p>
+<p>The main issue here is that it can be quite difficult to explain why a decision has been made.</p>
+<blockquote>
+<p>"If the true classifier is a halfspace, then we should be able to find a very precise separation line with only a few random examples."</p>
+</blockquote>
+<p><strong>1-nearest neighbor algorithm</strong></p>
+<p>In this extreme example we store all observations and their lables. Any new lable receives the label of the closest point. Two main conclusions we notice are:- This algorithm will always classify all training samples correctly.</p>
+<ul>
+<li>This algorithm will also be able to approximate any smooth function, even where halfspace classifiers perform poorly.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">true_classifier</span><span class="p">(</span><span class="n">point</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">nearest_neighbor</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">test_point</span><span class="p">):</span>
+    <span class="n">closest_dist</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'inf'</span><span class="p">)</span>
+    <span class="n">closest</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="k">for</span> <span class="n">features</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">train_set</span><span class="p">:</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([(</span><span class="n">p2</span><span class="o">-</span><span class="n">p1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">p1</span><span class="p">,</span><span class="n">p2</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">test_point</span><span class="p">))])</span>
+        <span class="k">if</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="n">closest_dist</span><span class="p">:</span>
+            <span class="n">closest_dist</span> <span class="o">=</span> <span class="n">dist</span>
+            <span class="n">closest</span> <span class="o">=</span> <span class="n">label</span>
+
+    <span class="n">label</span> <span class="o">=</span> <span class="n">closest</span>
+    <span class="k">return</span> <span class="n">label</span>
+
+
+<span class="k">def</span> <span class="nf">error_probability</span><span class="p">(</span><span class="n">train_set</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">mistakes</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">no_test_points</span> <span class="o">=</span> <span class="mi">2000</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">no_test_points</span><span class="p">):</span>
+        <span class="n">point</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">/</span><span class="n">no_test_points</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,)</span>
+        <span class="k">if</span> <span class="n">true_classifier</span><span class="p">(</span><span class="n">point</span><span class="p">)</span> <span class="o">!=</span> <span class="n">nearest_neighbor</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">mistakes</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">mistakes</span><span class="o">/</span><span class="n">no_test_points</span>
+
+<span class="n">train_inputs</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="n">new_input</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.0001</span>
+<span class="c1">#-0.0010000000000000009</span>
+
+<span class="n">S</span> <span class="o">=</span> <span class="p">[((</span><span class="n">x_val</span><span class="p">,),</span> <span class="n">true_classifier</span><span class="p">((</span><span class="n">x_val</span><span class="p">,)))</span> <span class="k">for</span> <span class="n">x_val</span> <span class="ow">in</span> <span class="n">train_inputs</span><span class="p">]</span>
+<span class="n">error_S</span> <span class="o">=</span> <span class="n">error_probability</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="n">new_point</span> <span class="o">=</span> <span class="p">(</span><span class="n">new_input</span><span class="p">,)</span>
+<span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">(</span><span class="n">new_point</span><span class="p">,</span> <span class="n">true_classifier</span><span class="p">(</span><span class="n">new_point</span><span class="p">))</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">error_S</span><span class="p">,</span> <span class="n">error_probability</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">error_S</span> <span class="o">&lt;</span> <span class="n">error_probability</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.0005 0.025
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
