@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Trustworthy Online Controlled Experiments | Kalle Bylin: Books &amp; Data</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Trustworthy Online Controlled Experiments" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Practical Guide to A/B Testing" />
+<meta property="og:description" content="A Practical Guide to A/B Testing" />
+<link rel="canonical" href="https://kallebylin.github.io/bylin/books/2021/05/01/trustworthy-controlled-experiments.html" />
+<meta property="og:url" content="https://kallebylin.github.io/bylin/books/2021/05/01/trustworthy-controlled-experiments.html" />
+<meta property="og:site_name" content="Kalle Bylin: Books &amp; Data" />
+<meta property="og:image" content="https://kallebylin.github.io/bylin/img/controlled%20experiments.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://kallebylin.github.io/bylin/books/2021/05/01/trustworthy-controlled-experiments.html","@type":"BlogPosting","headline":"Trustworthy Online Controlled Experiments","dateModified":"2021-05-01T00:00:00-05:00","datePublished":"2021-05-01T00:00:00-05:00","image":"https://kallebylin.github.io/bylin/img/controlled%20experiments.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://kallebylin.github.io/bylin/books/2021/05/01/trustworthy-controlled-experiments.html"},"description":"A Practical Guide to A/B Testing","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/bylin/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://kallebylin.github.io/bylin/feed.xml" title="Kalle Bylin: Books &amp; Data" /><link rel="shortcut icon" type="image/x-icon" href="/bylin/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" /><script src="https://hypothes.is/embed.js" async></script>
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/bylin/">Kalle Bylin: Books &amp; Data</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/bylin/about/">About Me</a><a class="page-link" href="/bylin/search/">Search</a><a class="page-link" href="/bylin/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Trustworthy Online Controlled Experiments</h1><p class="page-description">A Practical Guide to A/B Testing</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-05-01T00:00:00-05:00" itemprop="datePublished">
+        May 1, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/bylin/categories/#books">books</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/kallebylin/bylin/tree/master/_notebooks/2021-05-01-trustworthy-controlled-experiments.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/bylin/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/kallebylin/bylin/master?filepath=_notebooks%2F2021-05-01-trustworthy-controlled-experiments.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/bylin/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/kallebylin/bylin/blob/master/_notebooks/2021-05-01-trustworthy-controlled-experiments.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/bylin/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#🚀-The-book-in-3-sentences">🚀 The book in 3 sentences </a></li>
+<li class="toc-entry toc-h1"><a href="#🎨-Impressions">🎨 Impressions </a></li>
+<li class="toc-entry toc-h1"><a href="#☘️-How-the-book-changed-me">☘️ How the book changed me </a></li>
+<li class="toc-entry toc-h1"><a href="#✍️-My-top-3-quotes">✍️ My top 3 quotes </a></li>
+<li class="toc-entry toc-h1"><a href="#📒-Summary-+-Notes">📒 Summary + Notes </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Part-1:-Introductory-topics-for-everyone">Part 1: Introductory topics for everyone </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1.-Introduction-and-motivation">1. Introduction and motivation </a></li>
+<li class="toc-entry toc-h3"><a href="#2.-Running-and-analyzing-experiments">2. Running and analyzing experiments </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-05-01-trustworthy-controlled-experiments.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Author:</li>
+<li>Genre:</li>
+<li>Date finished:</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><figure>
+  
+    <img class="docimage" src="/bylin/images/copied_from_nb/img/controlled%20experiments.jpg" alt="ab-testing" style="max-width: 300px">
+    
+    
+</figure>
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="🚀-The-book-in-3-sentences">
+<a class="anchor" href="#%F0%9F%9A%80-The-book-in-3-sentences" aria-hidden="true"><span class="octicon octicon-link"></span></a>🚀 The book in 3 sentences<a class="anchor-link" href="#%F0%9F%9A%80-The-book-in-3-sentences"> </a>
+</h1>
+<p>[Still reading the book]</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="🎨-Impressions">
+<a class="anchor" href="#%F0%9F%8E%A8-Impressions" aria-hidden="true"><span class="octicon octicon-link"></span></a>🎨 Impressions<a class="anchor-link" href="#%F0%9F%8E%A8-Impressions"> </a>
+</h1>
+<p>[Still reading the book]</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="☘️-How-the-book-changed-me">
+<a class="anchor" href="#%E2%98%98%EF%B8%8F-How-the-book-changed-me" aria-hidden="true"><span class="octicon octicon-link"></span></a>☘️ How the book changed me<a class="anchor-link" href="#%E2%98%98%EF%B8%8F-How-the-book-changed-me"> </a>
+</h1>
+<p>[Still reading the book]</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="✍️-My-top-3-quotes">
+<a class="anchor" href="#%E2%9C%8D%EF%B8%8F-My-top-3-quotes" aria-hidden="true"><span class="octicon octicon-link"></span></a>✍️ My top 3 quotes<a class="anchor-link" href="#%E2%9C%8D%EF%B8%8F-My-top-3-quotes"> </a>
+</h1>
+<p>[Still reading the book]</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="📒-Summary-+-Notes">
+<a class="anchor" href="#%F0%9F%93%92-Summary-+-Notes" aria-hidden="true"><span class="octicon octicon-link"></span></a>📒 Summary + Notes<a class="anchor-link" href="#%F0%9F%93%92-Summary-+-Notes"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Part-1:-Introductory-topics-for-everyone">
+<a class="anchor" href="#Part-1:-Introductory-topics-for-everyone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Part 1: Introductory topics for everyone<a class="anchor-link" href="#Part-1:-Introductory-topics-for-everyone"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Introduction-and-motivation">
+<a class="anchor" href="#1.-Introduction-and-motivation" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Introduction and motivation<a class="anchor-link" href="#1.-Introduction-and-motivation"> </a>
+</h3>
+<p>The book starts with an anecdote from Bing where an employee had proposed a new idea for how ad headlines should be displayed. The basic idea was to make the title longer by combining it with text from the first line under the title. Nobody seemed to think much of this idea and it was stashed into the backlog of experiments for six months before a software engineer decided to test the idea.</p>
+<p>This simple change ended up increasing revenue by 12%, which translated to more than $100 million dollars in the US alone annually without hurting other important metrics.</p>
+<p>A few takeaways from this event are that it's very hard to predict the value of an idea (this one ended up being forgotten during 6 months) and small changes can have huge impacts. For this reason it is important to have infrastructure in place that makes experimenting very cheap. Bing runs more than 10.000 experiments per year and the great majority don't have this kind of results.</p>
+<p>There are many types of <strong>controlled experiments</strong>. The main focus of this book is on a specific type of controlled experiment called an A/B test. The basic idea is to split users randomly between a control version and a variant.</p>
+<p>Another very important concept is the <strong>Overall Evaluation Criterion (OEC)</strong>. This could be a single metric or a combination of different metrics. The most important thing to remember is that the OEC has to be measurable in the short-term and believed to have a causal relationship with long-term success according to established strategic objectives.</p>
+<p>Think about the ad headline example. If the success metric was only revenue, it wouldn't take long before the whole site was full of ads. This could definitely increase revenue in the short-term, but would probably turn users off in the long-term causing them to switch over to friendlier alternatives.</p>
+<p>When designing a controlled experiment, it is common to choose a <strong>parameter</strong> or set of parameters. These are variables that we think are going to have an impact on the OEC. These parameters are going to take on different values for each variant.</p>
+<p>It is also <strong>important to thoughtfully set up the randomization process</strong>. This is the secret sauce of controlled experiments. The basic intuition behind this is that if there is no other factor influencing assignment apart from proper randomization, then on average we would expect both groups to be similar on all factors except the parameter we are changing. This means that any observed effect on the OEC should with very high probability be an effect of that change and nothing else.</p>
+<p>This leads us into a conversation around <strong>correlation, causality and trustworthiness</strong>. The authors present a slightly silly but true example by sharing that the number of error messages has a strong inverse correlation with churn. Should we then increase the number of error messages or intentionally add bugs to the code of Office 365? Obviously not, because error messages don't cause lower churn. It turns out that power users tend to churn less and bump into more error messages just because they use the product more than other users.</p>
+<blockquote>
+<p>"We believe online controlled experiments are the best scientific way to establish causality with high probability"</p>
+</blockquote>
+<p>Of course, it's not always possible to run a controlled experiment. For example, we can't create two alternate realities where we buy another company in one reality and we don't buy the other company in the other reality to see which option is better.</p>
+<p>The authors list a series of <strong>ingredients that need to be present to be able to run a controlled experiment</strong>:1. <strong>Experimental units</strong>, like users, that can be assigned to each variant without interference where users in one group could affect the actions of the users of the other group.</p>
+<ol>
+<li>
+<p><strong>Enough experimental units</strong>. The authors recommend to be at least in the thousands. The more units we have the more granular we can be in our experiments and discover smaller effects that are harder to detect.</p>
+</li>
+<li>
+<p><strong>Key metrics</strong> that are easy to understand, agreed upon and can be measured easily. If possible, the OEC should be used. A proxy metric can be used if the main metric is too difficult or slow to measure.</p>
+</li>
+<li>
+<p><strong>Easy changes</strong>. The harder it is to create a variant, the harder it becomes to run a controlled experiment. This is one of the reasons software has become an ideal playground for running controlled experiments.</p>
+</li>
+</ol>
+<p>The authors also present three tenets or key beliefs that any organization needs to run online controlled experiments:</p>
+<ol>
+<li><strong>The organization wants to make data-driven decisions and has formalized an OEC</strong></li>
+</ol>
+<p>Obviously, most people will say that data-driven decision-making is important for them. Still, in practice it is very common to plan, execute and declare success based on how much of the plan was accomplished while ignoring the impact on key metrics.</p>
+<p>In contrast, for data-driven decision-making to exist we need a clearly defined OEC (or set of OECs) that is measurable in the short term (1 to 2 weeks) and predictive of long-term success. This way we can quickly evaluate if what we are doing tactically and strategically is actually having a real impact on our OEC.</p>
+<ol>
+<li><strong>The organization is willing to invest in the infrastructure needed to run and test controlled experiments so that results are trustworthy</strong></li>
+</ol>
+<p>In some domains, like healthcare, it can be considered unethical or illegal to run certain controlled experiments. In other domains, like hardware production, changes can be slow and expensive.</p>
+<p>In general, software is a great option because it tends to be relatively easy to randomly split users between variants, log the results and iteratively add changes to the software. Still, the organization still has to be willing to invest in setting up the necessary tests and processes so that results are trustworthy at scale.</p>
+<ol>
+<li><strong>The organization recongizes that it is poor at assessing the value of ideas</strong></li>
+</ol>
+<p>Based on quotes from experts at Microsoft, Google, Netflix, Slack and others, the authors claim that most teams see experiment success rates of 10-33\%, with most of them being on the lower end. In other words, we can expect 70-90\% of our work to be thrown away due to poor or even negative results.</p>
+<blockquote>
+<p>"Most who have run controlled experiments in customer-facing websites and applications have experienced this humbling reality:<em>we are poor at assessing the value of ideas</em>".</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Running-and-analyzing-experiments">
+<a class="anchor" href="#2.-Running-and-analyzing-experiments" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Running and analyzing experiments<a class="anchor-link" href="#2.-Running-and-analyzing-experiments"> </a>
+</h3>
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="kallebylin/bylin"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/bylin/books/2021/05/01/trustworthy-controlled-experiments.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/bylin/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/bylin/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/bylin/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A repo for my book reviews and notes.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/kallebylin" title="kallebylin"><svg class="svg-icon grey"><use xlink:href="/bylin/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/kallebylin" title="kallebylin"><svg class="svg-icon grey"><use xlink:href="/bylin/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
