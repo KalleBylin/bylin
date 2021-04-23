@@ -78,7 +78,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      14 min read
     
 </span></p>
 
@@ -127,6 +127,7 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#1.-Introduction-and-motivation">1. Introduction and motivation </a></li>
 <li class="toc-entry toc-h3"><a href="#2.-Running-and-analyzing-experiments">2. Running and analyzing experiments </a></li>
+<li class="toc-entry toc-h3"><a href="#3.-Twyman's-law-and-experimentation-trustworthiness">3. Twyman&#39;s law and experimentation trustworthiness </a></li>
 </ul>
 </li>
 </ul>
@@ -193,7 +194,12 @@ window.onload = wrap_img;
 <h1 id="✍️-My-top-3-quotes">
 <a class="anchor" href="#%E2%9C%8D%EF%B8%8F-My-top-3-quotes" aria-hidden="true"><span class="octicon octicon-link"></span></a>✍️ My top 3 quotes<a class="anchor-link" href="#%E2%9C%8D%EF%B8%8F-My-top-3-quotes"> </a>
 </h1>
-<p>[Still reading the book]</p>
+<ul>
+<li>"Most who have run controlled experiments in customer-facing websites and applications have experienced this humbling reality: <em>we are poor at assessing the value of ideas</em>"</li>
+</ul>
+<ul>
+<li>Twyman's Law: "Any figure that looks interesting or different is usually wrong" - A.S.C. Ehrenberg || "The more unusual or interesting the data, the more likely they are to have been the result of an error" -  Catherine Marsh and Jane Elliott</li>
+</ul>
 
 </div>
 </div>
@@ -238,14 +244,15 @@ window.onload = wrap_img;
 <p>The authors list a series of <strong>ingredients that need to be present to be able to run a controlled experiment</strong>:1. <strong>Experimental units</strong>, like users, that can be assigned to each variant without interference where users in one group could affect the actions of the users of the other group.</p>
 <ol>
 <li>
-<p><strong>Enough experimental units</strong>. The authors recommend to be at least in the thousands. The more units we have the more granular we can be in our experiments and discover smaller effects that are harder to detect.</p>
-</li>
+<strong>Enough experimental units</strong>. The authors recommend to be at least in the thousands. The more units we have the more granular we can be in our experiments and discover smaller effects that are harder to detect.  </li>
+</ol>
+<ol>
 <li>
-<p><strong>Key metrics</strong> that are easy to understand, agreed upon and can be measured easily. If possible, the OEC should be used. A proxy metric can be used if the main metric is too difficult or slow to measure.</p>
-</li>
+<strong>Key metrics</strong> that are easy to understand, agreed upon and can be measured easily. If possible, the OEC should be used. A proxy metric can be used if the main metric is too difficult or slow to measure.</li>
+</ol>
+<ol>
 <li>
-<p><strong>Easy changes</strong>. The harder it is to create a variant, the harder it becomes to run a controlled experiment. This is one of the reasons software has become an ideal playground for running controlled experiments.</p>
-</li>
+<strong>Easy changes</strong>. The harder it is to create a variant, the harder it becomes to run a controlled experiment. This is one of the reasons software has become an ideal playground for running controlled experiments. </li>
 </ol>
 <p>The authors also present three tenets or key beliefs that any organization needs to run online controlled experiments:</p>
 <ol>
@@ -261,7 +268,7 @@ window.onload = wrap_img;
 <ol>
 <li><strong>The organization recongizes that it is poor at assessing the value of ideas</strong></li>
 </ol>
-<p>Based on quotes from experts at Microsoft, Google, Netflix, Slack and others, the authors claim that most teams see experiment success rates of 10-33\%, with most of them being on the lower end. In other words, we can expect 70-90\% of our work to be thrown away due to poor or even negative results.</p>
+<p>Based on quotes from experts at Microsoft, Google, Netflix, Slack and others, the authors claim that most teams see experiment success rates of 10-33%, with most of them being on the lower end. In other words, we can expect 70-90% of our work to be thrown away due to poor or even negative results.</p>
 <blockquote>
 <p>"Most who have run controlled experiments in customer-facing websites and applications have experienced this humbling reality:<em>we are poor at assessing the value of ideas</em>".</p>
 </blockquote>
@@ -274,6 +281,68 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="2.-Running-and-analyzing-experiments">
 <a class="anchor" href="#2.-Running-and-analyzing-experiments" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Running and analyzing experiments<a class="anchor-link" href="#2.-Running-and-analyzing-experiments"> </a>
+</h3>
+<p>This chapter focuses on the principles of designing, running and analyzing experiments.</p>
+<p>It starts with a story about a hypothetical e-commerce site where some employees have proposed the idea of adding coupon codes to the checkout process. This implies a change to the business model because the company has not offered discount codes before. Another employee mentions that research has actually shown that coupon codes could have a negative effect (users get distracted or abandon the flow completely until they can get a code).</p>
+<p>The team decides to try out a <strong>fake door or painted door apporach</strong>. The analogy is to create a fake door or paint a door on the wall and see how many try to open it. This is a cheap way of testing an idea without having to build the whole feature first.</p>
+<p>Now the team has to choose their OEC. Revenue seems reasonable but the total sum can be misleading because, even if the process is randomized, one variant might end up with more users than the other which would skew the results. So revenue-per-user is a better choice.</p>
+<p>Still, the definition doesn't stop there. How do we define a user? Is it every user that visits the site? Only the users that purchase? The authors recommend users who start the purchase process because these are the users that are exposed to the variants and we need to know how this affects their next decisions.</p>
+<p>The final hypothesis to test would be "Adding a coupon code option to the checkout process has a negative impact on revenue-per-user for users who start the purchase process"</p>
+<p>At this point it is important to remember a few key concepts related to hypothesis testing:</p>
+<ul>
+<li>When analyzing the key metric it is important to capture its <strong>mean value and standard error</strong>. In other words, we usually don't know the true value of the metric. So we use data estimate a mean value (other statistics can also be used) and the standard error tells us how variable this estimate is.</li>
+</ul>
+<ul>
+<li>
+<strong>Sensitivity</strong> is the ability to detect statistically significant results (true positives). This concept goes hand in hand with <strong>statistical power</strong>, the probability of detecting a meaningful result when there really is one. This ability usually gets better with smaller standard errors. This makes intuitive sense. If we have a box filled with balls and almost all of them have the same color (low variablity) we can be pretty certain of the color of a ball if we pick it randomly. If we have a lot of different colors with equal distribution (high variablity) it becomes extremely difficult to guess the correct color. It is often possible to improve sensitivity by exposing more users to the experiment. We have to be careful though because are often additional costs with more users. </li>
+</ul>
+<ul>
+<li>
+<strong>Control vs treatment samples</strong>. In this particular type of experiments we are usually not trying to estimate one value directly. We are often more interested in the difference between two values. In this case, we define a <strong>Null hypothesis</strong>, our assumption of how the world works, as the mean value of our control group being the same as the mean value of our treatment group. If we then look at the data and find this assumption to be unlikely (e.g. there is a very large difference between the sample means) we reject the null hypothesis and say that the difference is <strong>statistically significant</strong>.</li>
+</ul>
+<ul>
+<li>To make the previous decision, we calculate the <strong>p-value</strong> for the difference. This is the probability of observing the difference between our sample means (or a more extreme difference) assuming that the null hypothesis is true. If this probability (the p-value) is very low, it means that observing this difference is very unlikely and that's why we go on to reject the null hypothesis. </li>
+</ul>
+<ul>
+<li>For this to work, we have to decide on a threshold before we run our experiment, usually known as the <strong>significance level</strong>. A common standard is 0.05 which means that if there really is no difference between the two samples then we will correctly conclude this 95 out of each 100 experiments on average. Seen from another perspective, we will conclude that the difference is statistically significant even if there actually was no real difference (a false positive) about 5% of the time.</li>
+</ul>
+<ul>
+<li>Finally, there is also the question of <strong>practical significance</strong>. For a more personal example, would it be worth it to take on the challenge and costs of moving to another country with no family and friends for a 1% increase in salary keeping everything else equal (job requirements, benefits, etc.)? Probaby not, but a larger difference might actually be worth it. Here the question is, how large does the difference have to be so that it is practically meaningful?</li>
+</ul>
+<p>Now that we have a hypothesis, a significance boundary and a metric we also need to answer these questions to finish the <strong>design of the experiment</strong>:</p>
+<ul>
+<li>What is the randomization unit? (Users is the most common)</li>
+<li>What population of the randomization unit are we going to target? (All users vs a specific segment)</li>
+<li>How large does the population of our experiment have to be? </li>
+<li>How long do we have to run the experiment?</li>
+</ul>
+<p>There are multiple factors we can take into account for the size of the population. If the metric is binary (yes/no) or if we don't care about very granular differences we can use smaller populations. This is also the case for larger p-value thresholds or significance levels. In other words, if we are willing to make more mistakes then we don't need very large populations.</p>
+<p>Of course, this leads us to other kinds of questions. If the importance of the experiment is very high then we might need larger populations to increase our certainty of the results. The opposite is true if we suspect that the change could have a negative effect on users. In that case we might have to start with a smaller population and slowly increase the size to reduce risk of a negative impact.</p>
+<p>Also, if we run multiple experiments at the same time, each variant will probably end up with less users.</p>
+<p>The duration of the experiment is also impacted by several factors. First of all, if we need more users we often have to allow the experiment to run for a longer period of time because not all users are exposed to the experiment simultaneously.</p>
+<p>A primacy effect might cause users to behave differently when they first see the change so we'll also have to wait longer to see if this behavior persists or not. It is also important to keep seasonality or day-of-week effects in mind. We might have to run the experiment longer than necessary from a theoretical stanpoint just to include different dates in the experiment.</p>
+<p>There are two main components for <strong>running the experiment</strong>:</p>
+<ul>
+<li>
+<p><strong>Infrastructure</strong> to run the experiment. This includes the possibility of randomizing, presenting different variants, etc.</p>
+</li>
+<li>
+<p><strong>Instrumentation</strong> to log how users are interacting with the variants and to calculate how the OEC is affected by the experiment.</p>
+</li>
+</ul>
+<p>Before analyzing the results, it is important to also run <strong>sanity checks</strong> on our experiment.</p>
+<p>This usually includes <strong>guardrail metrics and invariants</strong>. In the first case we might want to check the sample sizes so that they match with the expected proportions. Some guardrail metrics are also expected to be invariant for the experiments. For example, latency should not change between variants unless the change was specifically designed to alter the latency.</p>
+<p>With all this in place, we can now <strong>interpret the results and make decisions</strong>. The principles we have covered exist specifically so we can trust our experiments repeatedly and thus be able to make the right decisions based on the data.</p>
+<p>For this reason, it is important to understand the business implications of our experiments so that we can modify statistical and practical significance levels before we start the experiment. This includes the costs of building the feature if the experiment is successful, cost of maintenance, effects on other important metrics, etc.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Twyman's-law-and-experimentation-trustworthiness">
+<a class="anchor" href="#3.-Twyman's-law-and-experimentation-trustworthiness" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Twyman's law and experimentation trustworthiness<a class="anchor-link" href="#3.-Twyman's-law-and-experimentation-trustworthiness"> </a>
 </h3>
 </div>
 </div>
